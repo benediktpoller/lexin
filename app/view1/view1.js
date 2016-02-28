@@ -59,7 +59,9 @@ angular.module('myApp.view1', ['ngRoute'])
 
     angular.extend($scope, {
         resetContactForm: resetContactForm,
-        submitContactForm: submitContactForm
+        submitContactForm: submitContactForm,
+        submitOrder: submitOrder,
+        resetOrder: resetOrder
 
     });
 
@@ -78,7 +80,12 @@ angular.module('myApp.view1', ['ngRoute'])
             });
     }
 
-    function submitOrder() {
+    function submitOrder(ev) {
+        
+        if(ev) {
+            ev.preventDefault();
+        }
+        
         $http.post('http://formspree.io/benedikt.poller@gmail.com', $scope.order)
             .success(function () {
                 $scope.orderSent = true;

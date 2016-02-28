@@ -7730,10 +7730,6 @@ ul.downloads {
 .plan.darker > ul > li {
   border-bottom: 1px solid rgba(16, 50, 72, 0.55); }
 
-/* line 221, C:/projekte/lexin/app/app.scss */
-.plan.darker:hover {
-  color: #103248; }
-
 /* line 224, C:/projekte/lexin/app/app.scss */
 .plan.darker-bgcolor > .head {
   -webkit-transition: box-shadow 270ms ease-out;
@@ -7797,14 +7793,6 @@ ul.downloads {
 .plan .btn {
   margin-bottom: 4px; }
 
-/* line 280, C:/projekte/lexin/app/app.scss */
-.plan:hover {
-  color: #236b9b; }
-
-/* line 283, C:/projekte/lexin/app/app.scss */
-.plan:hover > .head > h2 > .fa-star {
-  color: #eeb816; }
-
 /* line 286, C:/projekte/lexin/app/app.scss */
 .plan.default-bgcolor {
   color: #ffffff;
@@ -7819,15 +7807,6 @@ ul.downloads {
 /* line 295, C:/projekte/lexin/app/app.scss */
 .plan.default-bgcolor > ul > li {
   border-bottom: 1px solid #2674a7; }
-
-/* line 298, C:/projekte/lexin/app/app.scss */
-.plan.default-bgcolor:hover {
-  color: #ffffff;
-  background-color: #2c88c5; }
-
-/* line 302, C:/projekte/lexin/app/app.scss */
-.plan.default-bgcolor:hover > .head {
-  box-shadow: inset 0 -4px 0 0 #77b6e0; }
 
 @media screen and (max-width: 992px) {
   /* line 306, C:/projekte/lexin/app/app.scss */
