@@ -1,0 +1,66 @@
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Kontakt</li>
+</ol>
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <h1>Kontakt</h1>
+
+        <div class="row" style="padding-left: 1em;">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d343172.2952104612!2d15.380279097584701!3d47.7807973445357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4772807b3c3eeb3b%3A0xe7af6c9e071624b0!2sGB-Tec+e.U.+Bernhard+Geissberger!5e0!3m2!1sde!2sat!4v1456446039613" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+<br><br>
+            
+            <div class="col-md-6 well" ng-if="messageSent">
+                <strong>Vielen Dank!</strong> Ihre Nachricht wurde gesendet.
+                <p>Möchten Sie eine <a href="" ng-click="resetContactForm()">weitere Nachricht</a> senden?</p>
+                
+            </div>
+            <div class="col-md-6 well" ng-if="!messageSent">
+                <form ng-submit="submitContactForm($event)">
+                    <div class="form-group">
+                        <label for="name">Ihr Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required ng-model="contact.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mail">Ihr E-Mail-Adresse</label>
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder="E-Mail-Adresse" required ng-model="contact.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Betreff</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Betreff" ng-model="contact.subject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Nachricht</label>
+                        <textarea class="form-control" rows="10" id="message" name="message" required ng-model="contact.message"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Senden</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <strong>GB-Tec e.U.</strong>
+                <br> Bernhard Geissberger
+                <br> Bahnweg 23/2/2
+                <br> 3125 Statzendorf
+                <br>
+                <br> office@gb-tec.at
+                <br> +43 664 / 527 22 12
+                <br>
+                <br> UID: ATU68951468
+                <br> FN 424241 i
+            </div>
+
+        </div>
+    </div>
+
+        <div class="col-md-4">
+            <div ng-include="'views/sidebar.html'"></div>
+        </div>
+

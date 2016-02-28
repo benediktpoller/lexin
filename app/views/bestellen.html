@@ -1,0 +1,146 @@
+<ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Bestellen</li>
+</ol>
+<!--
+<div class="row" style="margin: 0 1em;">
+    <div class="col-md-12 alert alert-warning">
+        <strong>Händler (Grosshändler)</strong>
+        <p>Für Händlerbedinungen kontaktieren Sie bitte den Vertreter über das <a hreF="#/kontakt">Formular</a>, oder per <a hreF="#/kontakt">E-Mail bzw. Telefon</a></p>
+
+    </div>
+    <div class="col-md-12 alert alert-warning">
+        <strong>Privatkunden (Kleinhändler)</strong>
+        <p>Proben Für Proben kontaktieren Sie bitte den Vertreter um die Bedinungen für Proben zu besprechen. Bitte spezifizieren Sie im <a hreF="#/kontakt">Kontaktformular im Kommentarbereich</a> für welche Feld- und/oder Gartenfrucht und für wieviele Hektar Sie Lexin verwenden möchten. Unserer Vertreter wird Sie so bald wie möglich kontaktieren um über weitere Details zu sprechen.</p>
+    </div>
+</div>
+-->
+
+<div class="row">
+    <div class="panel-body">
+
+        <div class="col-sm-8">
+<!--
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Rechnungsadresse</a></li>
+                <li role="presentation"><a href="#">Liederadresse</a></li>
+                <li role="presentation"><a href="#">Bestellübersicht</a></li>
+            </ul>-->
+
+            <form ng-submit="submitOrder()">
+                <div class="well">
+                    <div class="form-group">
+                        <label for="name">Firma</label>
+                        <input type="email" class="form-control" id="compyany" name="company" ng-model="order.company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">UID</label>
+                        <input type="email" class="form-control" id="uid" name="uid" ng-model="order.uid">
+                    </div>
+
+                </div>
+                <div class="well">
+
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" ng-model="order.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Ihr E-Mail-Adresse *</label>
+                        <input type="email" class="form-control" id="mail" ng-model="order.mail">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name">Telefon *</label>
+                        <input type="email" class="form-control" id="mail" ng-model="order.tel">
+                    </div>
+                </div>
+                <div class="well">
+                    <div class="form-group">
+                        <label for="name">Straße, Hausnummer *</label>
+                        <input type="email" class="form-control" id="mail" ng-model="order.street">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name">Postleitzahl *</label>
+                                <input type="email" class="form-control" id="mail" ng-model="order.zip">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+
+                            <div class="form-group">
+                                <label for="name">Ort *</label>
+                                <input type="email" class="form-control" id="mail" ng-model="order.city">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Land</label>
+                        <select class="form-control"  ng-model="order.country">
+                            <option selected>Deutschland</option>
+                            <option>Österreich</option>
+                            <option>Schweiz</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="well">
+
+                    <div class="form-group">
+                        <label for="name">Menge</label>
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="subject" value="10"  ng-model="order.amount">
+                            <div class="input-group-addon">Kanister</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name">Bemerkung</label>
+                        <textarea class="form-control" rows="10"  ng-model="order.remark"></textarea>
+                    </div>
+                </div>
+                <div class="well well-lg order">
+                    <a href="" class="btn btn-sm uppercase" ng-click="submitOrder()">Bestellung absenden</a>
+                </div>
+
+                <button type="submit" class="btn btn-default" ng-hide="true">Bestellen</button>
+            </form>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="well well-lg order hidden-sm hidden-xs">
+                <a href="" class="btn btn-sm uppercase" ng-click="submitOrder()">Bestellung absenden</a>
+            </div>
+
+            <div class="plan darker-bgcolor">
+                <div class="head">
+                    <h2><span class="mw-headline" id="Head_Title"><i class="fa fa-wrench"></i> Lexin</span></h2>
+                    <img src="assets/img/etikette.png" />
+                    <br> Entspricht der Ausbringung auf 40<abbr title="Hektar">ha</abbr> aufwärts bei einer Anwendung von empfohlenen 0,25l/ha
+                </div>
+                <ul class="item-list list-unstyled">
+                    <li>67,8 € pro Liter</li>
+                    <li>1 Kanister = 10 L = 40 ha</li>
+
+
+                    <li>678 € / Kanister = 16,95 € / ha</li>
+                </ul>
+                <div class="price">
+                    <h3><span class="mw-headline">678 €</span></h3>
+                    <h4><span class="mw-headline">pro Kanister</span></h4>
+                    <p>zuzgl. MwSt.</p>
+                </div>
+                <!--<div class="btn btn-info btn-lg"><i class="fa fa-info-circle"></i> Bestellen</div>-->
+            </div>
+        </div>
+    </div>
+
+</div>
