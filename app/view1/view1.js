@@ -32,7 +32,7 @@ angular.module('myApp.view1', ['ngRoute'])
             templateUrl: 'views/dosierung/dosierung.html',
             controller: 'LexinController'
         })
-        .when('/downloads', {
+        .when('/artikel', {
             templateUrl: 'views/downloads/downloads.html',
             controller: 'LexinController'
         })
