@@ -2,65 +2,54 @@
     <li><a href="#">Home</a></li>
     <li class="active">Bestellen</li>
 </ol>
-<!--
-<div class="row" style="margin: 0 1em;">
-    <div class="col-md-12 alert alert-warning">
-        <strong>Händler (Grosshändler)</strong>
-        <p>Für Händlerbedinungen kontaktieren Sie bitte den Vertreter über das <a hreF="#/kontakt">Formular</a>, oder per <a hreF="#/kontakt">E-Mail bzw. Telefon</a></p>
-
-    </div>
-    <div class="col-md-12 alert alert-warning">
-        <strong>Privatkunden (Kleinhändler)</strong>
-        <p>Proben Für Proben kontaktieren Sie bitte den Vertreter um die Bedinungen für Proben zu besprechen. Bitte spezifizieren Sie im <a hreF="#/kontakt">Kontaktformular im Kommentarbereich</a> für welche Feld- und/oder Gartenfrucht und für wieviele Hektar Sie Lexin verwenden möchten. Unserer Vertreter wird Sie so bald wie möglich kontaktieren um über weitere Details zu sprechen.</p>
-    </div>
-</div>
--->
 
 <div class="row">
     <div class="panel-body">
-        
+
         <div class="col-md-8 well" ng-if="orderSent">
-                <strong>Vielen Dank!</strong> Ihre Bestellung wurde gesendet.
-                <p>Zurück zum  <a href="" ng-click="resetOrder()">Bestellformular</a></p>
-                
-            </div>
+            <strong>Vielen Dank!</strong> Ihre Bestellung wurde gesendet.
+            <p>Zurück zum <a href="" ng-click="resetOrder()">Bestellformular</a></p>
+
+        </div>
 
         <div class="col-sm-8" ng-if="!orderSent">
-<!--
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Rechnungsadresse</a></li>
-                <li role="presentation"><a href="#">Liederadresse</a></li>
-                <li role="presentation"><a href="#">Bestellübersicht</a></li>
-            </ul>-->
-            
-            
 
-            <form ng-submit="submitOrder()">
+            <form id="form" ng-submit="submitOrder($event)">
                 <div class="well">
-                    <div class="form-group">
-                        <label for="company">Firma</label>
-                        <input type="email" class="form-control" id="compyany" name="company" ng-model="order.company">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="company">Firma</label>
+                                <input type="email" class="form-control" id="compyany" name="company" ng-model="order.company">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="uid"><abbr title="Umsatzsteuer-Identifikationsnummer">UID</abbr></label>
+                                <input type="email" class="form-control" id="uid" name="uid" ng-model="order.uid" placeholder="z.B. ATU99999999">
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="uid">UID</label>
-                        <input type="email" class="form-control" id="uid" name="uid" ng-model="order.uid">
-                    </div>
-
                 </div>
                 <div class="well">
-                    
+
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required ng-model="order.name">
                     </div>
-                    <div class="form-group">
-                        <label for="mail">Ihr E-Mail-Adresse</label>
-                        <input type="email" class="form-control" id="mail" name="mail" required ng-model="order.mail">
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Telefon</label>
-                        <input type="text" class="form-control" id="tel" ng-model="order.tel">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="mail">E-Mail-Adresse</label>
+                                <input type="email" class="form-control" id="mail" name="mail" required ng-model="order.mail">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name">Telefon</label>
+                                <input type="text" class="form-control" id="tel" ng-model="order.tel">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="well">
@@ -97,21 +86,30 @@
 
                 <div class="well">
 
-                    <div class="form-group">
-                        <label for="amount">Menge</label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" id="amount" name="amount" value="10" ng-model="order.amount">
-                            <div class="input-group-addon">Kanister</div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="amount">Menge</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="amount" name="amount" ng-model="order.amount" min="1" max="100" step="1">
+                                    <div class="input-group-addon">Kanister</div>
+                                    <div ng-messages="order.amount.$error" role="alert">
+                                        <div ng-message="required">Bitte geben Sie eine Stückzahl zwischen 1 und 100 an.</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="remark">Bemerkung</label>
-                        <textarea class="form-control" rows="10"  id="remark" name="remark" ng-model="order.remark"></textarea>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="remark">Bemerkung</label>
+                                <textarea class="form-control" rows="10" id="remark" name="remark" ng-model="order.remark"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="well well-lg order">
-                    <a href="" class="btn btn-sm uppercase" ng-click="submitOrder()">Bestellung absenden</a>
+                    <a href="" class="btn btn-sm uppercase" ng-click="submitOrderForm()">Bestellung absenden</a>
                 </div>
 
                 <!--<button type="submit" class="btn btn-default" ng-hide="true">Bestellen</button>-->
@@ -120,14 +118,14 @@
 
         <div class="col-sm-4">
             <div class="well well-lg order hidden-sm hidden-xs" ng-if="!orderSent">
-                <a href="" class="btn btn-sm uppercase" ng-click="submitOrder()">Bestellung absenden</a>
+                <a href="" class="btn btn-sm uppercase" ng-click="submitOrderForm()">Bestellung absenden</a>
             </div>
 
             <div class="plan darker-bgcolor">
                 <div class="head">
-                    <!--<h2><span class="mw-headline" id="Head_Title"><i class="fa fa-wrench"></i> Lexin</span></h2>-->
                     <img src="assets/img/etikette.png" />
-                    <br><br>Entspricht der Ausbringung auf 40<abbr title="Hektar">ha</abbr> aufwärts bei einer Anwendung von empfohlenen 0,25l/ha
+                    <br>
+                    <br>Entspricht der Ausbringung auf 40<abbr title="Hektar">ha</abbr> aufwärts bei einer Anwendung von empfohlenen 0,25l/ha
                 </div>
                 <ul class="item-list list-unstyled">
                     <li>67,8 € pro Liter</li>
@@ -139,7 +137,6 @@
                     <h4><span class="mw-headline">pro Kanister</span></h4>
                     <p>zuzgl. MwSt.</p>
                 </div>
-                <!--<div class="btn btn-info btn-lg"><i class="fa fa-info-circle"></i> Bestellen</div>-->
             </div>
         </div>
     </div>

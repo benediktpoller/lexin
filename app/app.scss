@@ -175,7 +175,8 @@ footer {
     a {
         color: #fff;
         text-decoration: underline;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             text-decoration: none;
             color: #fff;
         }
@@ -231,7 +232,7 @@ ul.downloads {
 }
 .plan.darker-bgcolor:hover {
     //color: #ffffff;
-   // background-color: #1a4e71;
+    // background-color: #1a4e71;
 }
 .plan > .head {
     border-top-left-radius: 0;
@@ -316,4 +317,7 @@ ul.downloads {
     blockquote {
         padding: 0px 1em;
     }
+}
+.plan.darker-bgcolor > .head {
+    box-shadow: inset 0 -4px 0 0 #444;
 }

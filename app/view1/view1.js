@@ -4,7 +4,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-        .when('/view1', {
+        .when('/home', {
             templateUrl: 'view1/view1.html',
             controller: 'LexinController'
         })
@@ -60,6 +60,7 @@ angular.module('myApp.view1', ['ngRoute'])
     angular.extend($scope, {
         resetContactForm: resetContactForm,
         submitContactForm: submitContactForm,
+        submitOrderForm: submitForm,
         submitOrder: submitOrder,
         resetOrder: resetOrder
 
@@ -69,6 +70,10 @@ angular.module('myApp.view1', ['ngRoute'])
     resetOrder();
 
     ///////////////////////
+    
+    function submitForm() {
+        $('form').submit();
+    }
 
     function submitContactForm(ev) {
 
@@ -82,10 +87,8 @@ angular.module('myApp.view1', ['ngRoute'])
 
     function submitOrder(ev) {
         
-        if(ev) {
-            ev.preventDefault();
-        }
-        
+        ev.preventDefault();
+                
         $http.post('http://formspree.io/benedikt.poller@gmail.com', $scope.order)
             .success(function () {
                 $scope.orderSent = true;
@@ -94,7 +97,9 @@ angular.module('myApp.view1', ['ngRoute'])
 
     function resetOrder() {
         $scope.order = {
-            _subject: 'Lexin | Bestellung'
+            _subject: 'Lexin | Bestellung',
+            amount: 1
+            
         };
         $scope.orderSent = false;
     }
